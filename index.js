@@ -13,6 +13,9 @@ morgan('tiny')
 
 mongoose.connect(process.env.MONGODB_URI)
 
+app.get("/", (req, res)=>{
+    res.json("Welcome to my Vinted-API 🚀😎")
+})
 //import routes
 const userRoutes = require("./routes/user")
 app.use(userRoutes)
