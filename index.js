@@ -11,10 +11,7 @@ app.use(formidable())
 app.use(cors())
 morgan('tiny')
 
-mongoose.connect('mongodb://localhost:27017/VintedDB', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(process.env.MONGODB_URI)
 
 //import routes
 const userRoutes = require("./routes/user")
@@ -23,6 +20,6 @@ app.use(userRoutes)
 const offerRoutes = require("./routes/offer")
 app.use(offerRoutes)
 
-app.listen(3000, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log("Server started on Port 3000");
 })
