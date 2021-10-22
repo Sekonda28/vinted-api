@@ -32,14 +32,15 @@ router.post("/user/signup", async (req, res) => {
         });
         await newUser.save();
 
-        newUser.account.avatar = await savePicture(
-          req.files.picture.path,
-          newUser.id,
-          "/vinted/users"
-        );
-
+        if (req.files.picture) {
+          newUser.account.avatar = await savePicture(
+            req.files.picture.path,
+            newUser.id,
+            "/vinted/users"
+          );
+        }
         res.status(200).json({
-          _id: newUser._id,
+          _id: newUser.id,
           token: newUser.token,
           account: newUser.account,
         });
