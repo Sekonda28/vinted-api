@@ -22,6 +22,7 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
         { color: req.fields.color },
         { city: req.fields.city },
       ],
+      product_image: req.files.picture,
       owner: req.user,
     });
     await newOffer.save();
