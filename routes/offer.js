@@ -33,8 +33,9 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
         newOffer.id,
         "/vinted/offers"
       );
+     await newOffer.save()
     }
-
+ 
     res.status(200).json({
       product_name: newOffer.product_name,
       product_description: newOffer.product_description,
