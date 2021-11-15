@@ -46,6 +46,7 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
         _id: newOffer.owner.id,
       },
       product_image: newOffer.product_image,
+      _id: newOffer.id
     });
   } catch (error) {
     res.status(400).json({ error: error.message });
