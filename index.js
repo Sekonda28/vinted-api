@@ -23,6 +23,9 @@ app.use(userRoutes)
 const offerRoutes = require("./routes/offer")
 app.use(offerRoutes)
 
+const paymentRoutes = require("./routes/payment")
+app.use(paymentRoutes)
+
 app.listen(process.env.PORT, ()=>{
-    console.log("Server started on Port 3000");
+    console.log("Server started on Port 4000");
 })
